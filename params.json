@@ -1,0 +1,745 @@
+{
+ "_about": "Every parameter of the IJSP revision experiment. provenance: measured = estimated from a named dataset; standard = published constant; assumed = chosen by the authors and varied in the sensitivity analysis.",
+ "fleet": {
+  "domains": [
+   "smart_home",
+   "healthcare",
+   "wearable",
+   "vehicle",
+   "industrial"
+  ],
+  "devices": {
+   "smart_home": 30,
+   "healthcare": 20,
+   "wearable": 20,
+   "vehicle": 15,
+   "industrial": 15
+  },
+  "provenance": "assumed (as in the submitted manuscript, Table 1)"
+ },
+ "replications": {
+  "R": 50,
+  "base_seed": 20261123,
+  "provenance": "assumed; 50 matches the submitted manuscript's 50 iterations; adequacy checked by CI half-width"
+ },
+ "vulnerabilities": {
+  "lambda_per_device": 5,
+  "lambda_sensitivity": [
+   2,
+   10
+  ],
+  "lambda_provenance": "assumed: NVD counts are not exposure rates, because CVE assignment for consumer products is sparse",
+  "real_pool": "NVD CVE records 2021-2025 classified by domain (scripts/01_extract_nvd.py); CVSS v3.x C/I/A impact, attack vector, exploitability subscore and CWE are drawn jointly by resampling whole records",
+  "shrinkage_n0": 50,
+  "shrinkage_provenance": "assumed: a record is drawn from the domain pool with probability n_d/(n_d+n0), else from the pooled consumer-IoT pool; protects small pools (healthcare n=17)",
+  "kev_multiplier": 5,
+  "kev_provenance": "assumed; KEV membership itself is measured (CISA KEV catalogue)",
+  "beta_exploit": 0.1,
+  "beta_sensitivity": [
+   0.05,
+   0.2
+  ],
+  "beta_provenance": "assumed annual exploitation propensity of an exploitable vulnerability; p_v = min(1, beta * expl_v/3.9 * kev_mult)",
+  "cvss_impact": {
+   "HIGH": 0.56,
+   "LOW": 0.22,
+   "NONE": 0.0
+  },
+  "cvss_impact_provenance": "standard (FIRST CVSS v3.1 specification); normalised by 0.56",
+  "synthetic": {
+   "provenance": "assumed (simulated arm): attributes drawn independently and uniformly",
+   "impact_levels": [
+    "NONE",
+    "LOW",
+    "HIGH"
+   ],
+   "attack_vectors": [
+    "NETWORK",
+    "ADJACENT_NETWORK",
+    "LOCAL",
+    "PHYSICAL"
+   ],
+   "expl_range": [
+    0.5,
+    3.9
+   ],
+   "kev_prob": 0.02
+  }
+ },
+ "weakness_classes": {
+  "_rule": "a CVE takes the first class (in this order) that any of its CWEs belongs to; else OTHER",
+  "order": [
+   "CRED",
+   "AUTH",
+   "TRANSIT",
+   "STORAGE",
+   "INJECTION",
+   "ACCESS",
+   "MEMORY",
+   "DOS"
+  ],
+  "CRED": [
+   798,
+   521,
+   522,
+   1391,
+   1392,
+   259,
+   1393,
+   257,
+   256,
+   1394,
+   262,
+   263
+  ],
+  "AUTH": [
+   287,
+   306,
+   307,
+   290,
+   288,
+   294,
+   303,
+   304,
+   305,
+   620,
+   640,
+   603,
+   1390,
+   345,
+   347,
+   330,
+   331,
+   338,
+   335,
+   384,
+   613,
+   614,
+   1385,
+   1275
+  ],
+  "TRANSIT": [
+   319,
+   311,
+   310,
+   295,
+   297,
+   326,
+   327,
+   757,
+   300,
+   322,
+   523,
+   325,
+   924,
+   1240,
+   1204,
+   328,
+   916,
+   780,
+   329,
+   354
+  ],
+  "STORAGE": [
+   312,
+   313,
+   922,
+   532,
+   200,
+   201,
+   209,
+   214,
+   215,
+   359,
+   497,
+   538,
+   524,
+   316,
+   315,
+   226,
+   1230,
+   1258,
+   1295,
+   321
+  ],
+  "INJECTION": [
+   20,
+   22,
+   23,
+   24,
+   35,
+   36,
+   59,
+   73,
+   74,
+   77,
+   78,
+   79,
+   80,
+   88,
+   89,
+   91,
+   93,
+   94,
+   95,
+   98,
+   113,
+   116,
+   117,
+   138,
+   150,
+   352,
+   434,
+   470,
+   502,
+   601,
+   610,
+   611,
+   643,
+   646,
+   776,
+   915,
+   917,
+   918,
+   1021,
+   1236,
+   1321,
+   1333
+  ],
+  "ACCESS": [
+   284,
+   285,
+   862,
+   863,
+   269,
+   732,
+   276,
+   280,
+   668,
+   639,
+   425,
+   264,
+   266,
+   250,
+   272,
+   273,
+   274,
+   281,
+   552,
+   749,
+   782,
+   912,
+   923,
+   1188,
+   1220,
+   1191,
+   1242,
+   1244,
+   1263,
+   648,
+   1004,
+   565,
+   346,
+   350
+  ],
+  "MEMORY": [
+   119,
+   120,
+   121,
+   122,
+   123,
+   124,
+   125,
+   126,
+   127,
+   129,
+   131,
+   134,
+   170,
+   190,
+   191,
+   193,
+   369,
+   415,
+   416,
+   476,
+   587,
+   590,
+   617,
+   665,
+   680,
+   681,
+   682,
+   704,
+   763,
+   787,
+   788,
+   805,
+   822,
+   823,
+   824,
+   825,
+   843,
+   908,
+   909,
+   457,
+   1284,
+   1285,
+   1325,
+   1335,
+   1341,
+   401,
+   404,
+   770,
+   772,
+   789
+  ],
+  "DOS": [
+   400,
+   399,
+   405,
+   407,
+   674,
+   834,
+   835,
+   1050,
+   703,
+   754,
+   755,
+   248,
+   410,
+   460,
+   662,
+   667,
+   833,
+   366,
+   362,
+   367
+  ]
+ },
+ "controls": {
+  "_provenance": "catalogue drawn from ETSI EN 303 645 v3.1.3, NIST IR 8259A and NIST CSF 2.0; cost, latency, throughput and effectiveness values are assumed and varied in sensitivity analysis",
+  "list": [
+   {
+    "id": "k1",
+    "name": "Unique strong credentials, no defaults",
+    "ref": "ETSI 5.1",
+    "cost": 50,
+    "lat": 0,
+    "thr": 0.0
+   },
+   {
+    "id": "k2",
+    "name": "Multi-factor authentication (app/cloud)",
+    "ref": "NIST CSF PR.AA",
+    "cost": 120,
+    "lat": 0,
+    "thr": 0.0
+   },
+   {
+    "id": "k3",
+    "name": "Signed OTA updates, timely patching",
+    "ref": "ETSI 5.3",
+    "cost": 300,
+    "lat": 0,
+    "thr": 0.0
+   },
+   {
+    "id": "k4",
+    "name": "Encryption in transit (TLS/DTLS 1.3)",
+    "ref": "ETSI 5.5",
+    "cost": 150,
+    "lat": 12,
+    "thr": 0.08
+   },
+   {
+    "id": "k5",
+    "name": "Encryption at rest / secure storage",
+    "ref": "ETSI 5.4",
+    "cost": 150,
+    "lat": 3,
+    "thr": 0.03
+   },
+   {
+    "id": "k6",
+    "name": "Network segmentation (IoT VLAN, deny by default)",
+    "ref": "NIST CSF PR.IR",
+    "cost": 100,
+    "lat": 2,
+    "thr": 0.01
+   },
+   {
+    "id": "k7",
+    "name": "Network intrusion detection with response",
+    "ref": "NIST CSF DE.CM",
+    "cost": 250,
+    "lat": 3,
+    "thr": 0.02
+   },
+   {
+    "id": "k8",
+    "name": "Minimise exposed services and interfaces",
+    "ref": "ETSI 5.6",
+    "cost": 60,
+    "lat": 0,
+    "thr": 0.0
+   },
+   {
+    "id": "k9",
+    "name": "Data minimisation and consent management",
+    "ref": "ETSI 6; GDPR Art 5(1)(c)",
+    "cost": 80,
+    "lat": 0,
+    "thr": 0.0
+   },
+   {
+    "id": "k10",
+    "name": "Security logging and breach-notification workflow",
+    "ref": "NIST CSF RS.MA",
+    "cost": 120,
+    "lat": 2,
+    "thr": 0.03
+   },
+   {
+    "id": "k11",
+    "name": "Resilience: local fallback, redundancy, failover",
+    "ref": "ETSI 5.9",
+    "cost": 200,
+    "lat": 6,
+    "thr": 0.05
+   },
+   {
+    "id": "k12",
+    "name": "Vulnerability disclosure, transparency, data deletion",
+    "ref": "ETSI 5.2, 5.11",
+    "cost": 40,
+    "lat": 0,
+    "thr": 0.0
+   }
+  ],
+  "domain_cost_factor": {
+   "smart_home": 1.0,
+   "healthcare": 1.5,
+   "wearable": 1.2,
+   "vehicle": 1.8,
+   "industrial": 2.0
+  },
+  "latency_note": "amortised per-message latency with session resumption (assumed); every control is individually feasible on every domain, combinations compete"
+ },
+ "effectiveness": {
+  "_meaning": "e[k][class] = probability that control k neutralises a vulnerability of that weakness class (if applicable to its attack vector)",
+  "k1": {
+   "CRED": 0.9,
+   "AUTH": 0.3
+  },
+  "k2": {
+   "AUTH": 0.7,
+   "CRED": 0.5,
+   "ACCESS": 0.2
+  },
+  "k3": {
+   "ALL": 0.7
+  },
+  "k4": {
+   "TRANSIT": 0.9
+  },
+  "k5": {
+   "STORAGE": 0.85
+  },
+  "k6": {
+   "ALL_BY_AV": {
+    "NETWORK": 0.5,
+    "ADJACENT_NETWORK": 0.7
+   }
+  },
+  "k7": {
+   "IDS": true
+  },
+  "k8": {
+   "INJECTION": 0.5,
+   "MEMORY": 0.5,
+   "ACCESS": 0.5,
+   "OTHER": 0.5,
+   "DOS": 0.3,
+   "_av": [
+    "NETWORK",
+    "ADJACENT_NETWORK"
+   ]
+  },
+  "k11": {
+   "AVAILABILITY_ONLY": 0.6
+  },
+  "k10": {
+   "ALL": 0.1
+  },
+  "effect_sensitivity": [
+   0.7,
+   1.3
+  ]
+ },
+ "ids": {
+  "rho_response": 0.5,
+  "rho_sensitivity": [
+   0.25,
+   0.75
+  ],
+  "rho_provenance": "assumed: probability that a detected attack is stopped before impact",
+  "class_to_cic": {
+   "DOS": [
+    "DoS",
+    "DDoS"
+   ],
+   "CRED": [
+    "Mirai"
+   ],
+   "AUTH": [
+    "BruteForce"
+   ],
+   "TRANSIT": [
+    "Spoofing"
+   ],
+   "INJECTION": [
+    "Web-Based"
+   ],
+   "MEMORY": [
+    "Web-Based"
+   ],
+   "ACCESS": [
+    "Web-Based"
+   ],
+   "OTHER": [
+    "Web-Based"
+   ],
+   "STORAGE": []
+  },
+  "class_to_cic_provenance": "assumed mapping; memory/access/other exploits are delivered as crafted payloads, so the web-based (payload) category is used: it is also the lowest, i.e. conservative",
+  "detection_source": "measured: CIC IoT-DIAD 2024 packet features, conservative threshold at 1% benign FPR (scripts/03_cic_ids_detection.py)",
+  "synthetic_detection": 0.9,
+  "_av": [
+   "NETWORK",
+   "ADJACENT_NETWORK"
+  ]
+ },
+ "privacy": {
+  "collection_exposure": {
+   "smart_home": 0.35,
+   "healthcare": 0.5,
+   "wearable": 0.45,
+   "vehicle": 0.4,
+   "industrial": 0.2
+  },
+  "collection_provenance": "assumed share of collected personal data beyond what the service needs",
+  "k9_effect": 0.7,
+  "storage_exposure": 0.3,
+  "storage_provenance": "assumed probability that stored personal data is recoverable without encryption at rest",
+  "k5_storage_effect": 0.85,
+  "tp_after_k4": 0.95,
+  "tp_baseline_real": "measured: per-device encrypted share of application payload bytes, CIC IoT-DIAD 2024 benign captures (47 devices, scripts/02_cic_transfer_protection.py), resampled for every device",
+  "tp_baseline_synthetic": [
+   0.4,
+   0.8
+  ]
+ },
+ "trust": {
+  "_meaning": "technical trustworthiness PROXIES, not measured consumer perception",
+  "device": "TD = 0.5*I + 0.5*u, u = 0.4 + 0.6*x_k3 (update assurance)",
+  "network": "TN = 0.5*TP + 0.5*Pr(no network-borne compromise)",
+  "consumer": "TCB = 0.4 + 0.2*(x_k9 + x_k10 + x_k12) (transparency and accountability controls)",
+  "provenance": "assumed functional forms"
+ },
+ "compliance": {
+  "_meaning": "requirement coverage: share of applicable requirements whose control rule is met. A coverage indicator, not a legal determination.",
+  "GDPR": [
+   {
+    "id": "G1",
+    "ref": "Art 5(1)(c) data minimisation",
+    "rule": "k9"
+   },
+   {
+    "id": "G2",
+    "ref": "Art 25 data protection by design and by default",
+    "rule": "k9&k1"
+   },
+   {
+    "id": "G3",
+    "ref": "Art 32(1)(a) encryption of personal data",
+    "rule": "k4&k5"
+   },
+   {
+    "id": "G4",
+    "ref": "Art 32(1)(b) ongoing confidentiality, integrity, availability and resilience",
+    "rule": "k3&k11"
+   },
+   {
+    "id": "G5",
+    "ref": "Art 32(1)(d) regular testing and evaluation of measures",
+    "rule": "k7|k10"
+   },
+   {
+    "id": "G6",
+    "ref": "Art 33-34 personal data breach notification",
+    "rule": "k10"
+   },
+   {
+    "id": "G7",
+    "ref": "Art 9 special categories (health data)",
+    "rule": "k4&k5&k2",
+    "domains": [
+     "healthcare",
+     "wearable"
+    ]
+   },
+   {
+    "id": "G8",
+    "ref": "Art 12-14, 17 transparency and erasure",
+    "rule": "k12"
+   }
+  ],
+  "POPIA": [
+   {
+    "id": "P1",
+    "ref": "s10 minimality",
+    "rule": "k9"
+   },
+   {
+    "id": "P2",
+    "ref": "s11 consent, justification and objection",
+    "rule": "k9"
+   },
+   {
+    "id": "P3",
+    "ref": "s19(1) appropriate technical safeguards",
+    "rule": "k3&k1&(k4|k5)"
+   },
+   {
+    "id": "P4",
+    "ref": "s19(2)(c)-(d) verify safeguards; update in response to new risks",
+    "rule": "(k7|k10)&k3"
+   },
+   {
+    "id": "P5",
+    "ref": "s22 notification of security compromises",
+    "rule": "k10"
+   },
+   {
+    "id": "P6",
+    "ref": "s18 notification to data subject (openness)",
+    "rule": "k12"
+   },
+   {
+    "id": "P7",
+    "ref": "s26-27, s32 special personal information (health)",
+    "rule": "k4&k5",
+    "domains": [
+     "healthcare",
+     "wearable"
+    ]
+   }
+  ],
+  "NIST": [
+   {
+    "id": "N1",
+    "ref": "PR.AA identity management, authentication and access control",
+    "rule": "k1&k2"
+   },
+   {
+    "id": "N2",
+    "ref": "PR.DS data security (at rest and in transit)",
+    "rule": "k4&k5"
+   },
+   {
+    "id": "N3",
+    "ref": "PR.PS platform security (configuration, software maintenance)",
+    "rule": "k3&k8"
+   },
+   {
+    "id": "N4",
+    "ref": "PR.IR technology infrastructure resilience",
+    "rule": "k6&k11"
+   },
+   {
+    "id": "N5",
+    "ref": "DE.CM continuous monitoring",
+    "rule": "k7|k10"
+   },
+   {
+    "id": "N6",
+    "ref": "RS.MA, RS.CO incident management and reporting",
+    "rule": "k10"
+   },
+   {
+    "id": "N7",
+    "ref": "ID.RA-08 vulnerability disclosure handling",
+    "rule": "k12&k3"
+   }
+  ],
+  "provenance": "author mapping of requirement to control; requires expert legal validation before operational use",
+  "GDPR_POPIA_apply_to_industrial": false
+ },
+ "constraints": {
+  "budget_fractions": [
+   0.2,
+   0.35,
+   0.5,
+   0.65,
+   0.8,
+   1.0
+  ],
+  "budget_reference": 0.5,
+  "budget_meaning": "fraction of the cost of deploying every applicable control on every device",
+  "latency_max_ms": {
+   "smart_home": 30,
+   "healthcare": 18,
+   "wearable": 25,
+   "vehicle": 15,
+   "industrial": 12
+  },
+  "throughput_min": {
+   "smart_home": 0.85,
+   "healthcare": 0.9,
+   "wearable": 0.85,
+   "vehicle": 0.9,
+   "industrial": 0.92
+  },
+  "compliance_threshold": 0.6,
+  "provenance": "assumed; varied in sensitivity analysis (caps +/-50%)"
+ },
+ "optimizer": {
+  "algorithm": "NSGA-II (pymoo 0.6.2)",
+  "pop_size": 200,
+  "generations": 300,
+  "crossover": "uniform, p=0.9",
+  "mutation": "bit-flip, p=1/n_var",
+  "repair": "per-device latency/throughput then global budget (drop lowest marginal-value-per-cost)",
+  "stopping": "fixed generation budget; convergence tracked by hypervolume",
+  "representative": "knee point: front member closest (Euclidean, objective-wise min-max normalised) to the ideal point",
+  "alternatives": [
+   "NSGA-III",
+   "MOEA/D (Tchebycheff)"
+  ],
+  "exact_reference": "weighted-sum MILP (HiGHS) over per-device enumerated feasible configurations, 11 weight vectors on the simplex lattice + equal weights"
+ },
+ "baselines": {
+  "B0_as_is": "no added controls",
+  "B1_checklist": "ETSI EN 303 645 provision order (k1,k12,k3,k5,k4,k8,k9,k10,k6,k11,k7,k2) applied device by device until budget",
+  "B2_greedy_security": "repeatedly add the feasible control with largest security gain per cost",
+  "B3_compliance_only": "exact MILP maximising compliance coverage only",
+  "B4_random": "random feasible additions until budget (mean of 200 draws)",
+  "B5_weighted_sum": "exact MILP, equal weights on S,P,T,CS (single-objective scalarisation)"
+ },
+ "statistics": {
+  "ci": "percentile bootstrap, 10,000 resamples, over replications",
+  "tests": "Wilcoxon signed-rank, paired by replication, knee vs each baseline per objective; Holm correction within each baseline",
+  "effect_size": "matched-pairs rank-biserial correlation",
+  "alpha": 0.05
+ },
+ "existing_controls": {
+  "prevalence": 0.3,
+  "prevalence_sensitivity": [
+   0.1,
+   0.5
+  ],
+  "k4_real_rule": "real arm: k4 already deployed if the device's measured encrypted share >= 0.9; simulated arm: same prevalence as other controls",
+  "provenance": "assumed prevalence (measured for k4 in the real arm); existing controls are sunk (no cost) and are never removed; if a drawn set breaks a device cap, controls are dropped in descending latency order until feasible"
+ }
+}

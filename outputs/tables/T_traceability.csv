@@ -1,0 +1,23 @@
+framework,id,requirement,control_rule,applies_to
+GDPR,G1,Art 5(1)(c) data minimisation,k9,all except industrial
+GDPR,G2,Art 25 data protection by design and by default,k9 AND k1,all except industrial
+GDPR,G3,Art 32(1)(a) encryption of personal data,k4 AND k5,all except industrial
+GDPR,G4,"Art 32(1)(b) ongoing confidentiality, integrity, availability and resilience",k3 AND k11,all except industrial
+GDPR,G5,Art 32(1)(d) regular testing and evaluation of measures,k7 OR k10,all except industrial
+GDPR,G6,Art 33-34 personal data breach notification,k10,all except industrial
+GDPR,G7,Art 9 special categories (health data),k4 AND k5 AND k2,"healthcare, wearable"
+GDPR,G8,"Art 12-14, 17 transparency and erasure",k12,all except industrial
+POPIA,P1,s10 minimality,k9,all except industrial
+POPIA,P2,"s11 consent, justification and objection",k9,all except industrial
+POPIA,P3,s19(1) appropriate technical safeguards,k3 AND k1 AND (k4 OR k5),all except industrial
+POPIA,P4,s19(2)(c)-(d) verify safeguards; update in response to new risks,(k7 OR k10) AND k3,all except industrial
+POPIA,P5,s22 notification of security compromises,k10,all except industrial
+POPIA,P6,s18 notification to data subject (openness),k12,all except industrial
+POPIA,P7,"s26-27, s32 special personal information (health)",k4 AND k5,"healthcare, wearable"
+NIST CSF 2.0,N1,"PR.AA identity management, authentication and access control",k1 AND k2,all
+NIST CSF 2.0,N2,PR.DS data security (at rest and in transit),k4 AND k5,all
+NIST CSF 2.0,N3,"PR.PS platform security (configuration, software maintenance)",k3 AND k8,all
+NIST CSF 2.0,N4,PR.IR technology infrastructure resilience,k6 AND k11,all
+NIST CSF 2.0,N5,DE.CM continuous monitoring,k7 OR k10,all
+NIST CSF 2.0,N6,"RS.MA, RS.CO incident management and reporting",k10,all
+NIST CSF 2.0,N7,ID.RA-08 vulnerability disclosure handling,k12 AND k3,all

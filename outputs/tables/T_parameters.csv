@@ -1,0 +1,17 @@
+parameter,source,provenance
+"Device vulnerability records (CVSS C/I/A, attack vector, exploitability, CWE)","NVD 2021-2025, 1,372 consumer-IoT records",Measured
+Actively exploited flag,CISA KEV catalogue (version 2026.11.20),Measured
+Baseline transfer protection (encrypted share of traffic),"CIC IoT-DIAD 2024 benign captures, 47 devices",Measured
+IDS detection rate by attack class,"CIC IoT-DIAD 2024, 27 attack sub-categories",Measured
+"CVSS impact coefficients (High 0.56, Low 0.22)",FIRST CVSS v3.1 specification,Standard
+Control catalogue and requirement wording,ETSI EN 303 645; NIST IR 8259A; NIST CSF 2.0; GDPR; POPIA,Standard
+Open vulnerabilities per device: Poisson mean 5 (tested 2 and 10),-,Assumed
+Annual exploitation propensity β = 0.10 (tested 0.05 and 0.2); KEV multiplier κ = 5,-,Assumed
+IDS response probability 0.5 (tested 0.25 and 0.75),-,Assumed
+Control effectiveness values (Table 3; all scaled x0.7 and x1.3 in sensitivity),-,Assumed
+"Control cost, latency and throughput (Table 3; costs perturbed U(0.5,1.5))",-,Assumed
+Existing-control prevalence 0.3 (tested 0.1 and 0.5),measured for transport encryption in the real arm,Assumed
+"Collection and storage exposure, trust-proxy forms",-,Assumed
+"Latency caps (ms): smart home 30, healthcare 18, wearable 25, vehicle 15, industrial 12 (x0.5 and x1.5 tested); throughput floors: smart home 0.85, healthcare 0.90, wearable 0.85, vehicle 0.90, industrial 0.92",-,Assumed
+"Budget fractions 0.2, 0.35, 0.5, 0.65, 0.8, 1.0 (reference 0.5); compliance threshold 0.6",-,Assumed
+"Simulated arm: impacts, attack vector, weakness class uniform; exploitability U(0.5,3.9); KEV prob. 0.02; transfer protection U(0.4,0.8); IDS 0.9",-,Assumed (simulated arm only)
